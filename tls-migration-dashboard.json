@@ -1,0 +1,927 @@
+{
+    "dashboards": [
+      {
+        "compartmentId": "ENTER_COMPARTMENT_ID",
+        "dashboardId": "ocid1.managementdashboard.oc1..aaaaaaaa2fnjbebay2z724ubsqzwlhc2adkqpwouw7ezxpz4eu2cpdf5lftq",
+        "dataConfig": [],
+        "definedTags": {},
+        "description": "",
+        "displayName": "TLS-Migration-Insights",
+        "drilldownConfig": [],
+        "freeformTags": {},
+        "isFavorite": false,
+        "isOobDashboard": false,
+        "isShowDescription": true,
+        "isShowInHome": false,
+        "metadataVersion": "2.0",
+        "nls": {},
+        "parametersConfig": [
+          {
+            "localStorageKey": "log-analytics-loggroup-filter",
+            "name": "log-analytics-loggroup-filter",
+            "parametersMap": {
+              "isStoreInLocalStorage": true
+            },
+            "savedSearchId": "OOBSS-management-dashboard-filter-4a",
+            "state": "DEFAULT",
+            "uiConfig": {
+              "defaultWidth": 3,
+              "filterName": "log-analytics-loggroup-filter",
+              "internalKey": "OOBSS-management-dashboard-filter-4a",
+              "minWidth": 3,
+              "vizFilterType": "lxLogGroupDashFilterType"
+            }
+          },
+          {
+            "localStorageKey": "log-analytics-entity-filter",
+            "name": "log-analytics-entity-filter",
+            "parametersMap": {
+              "isStoreInLocalStorage": true
+            },
+            "savedSearchId": "OOBSS-management-dashboard-filter-2a",
+            "state": "DEFAULT",
+            "uiConfig": {
+              "defaultWidth": 6,
+              "filterName": "log-analytics-entity-filter",
+              "internalKey": "OOBSS-management-dashboard-filter-2a",
+              "minWidth": 6,
+              "vizFilterType": "lxEntityDashFilterType"
+            },
+            "width": 6
+          }
+        ],
+        "providerId": "log-analytics",
+        "providerName": "Logging Analytics",
+        "providerVersion": "3.0.0",
+        "savedSearches": [
+          {
+            "compartmentId": "ENTER_COMPARTMENT_ID",
+            "dataConfig": [],
+            "definedTags": {},
+            "description": "",
+            "displayName": "top-10-non1.3-users",
+            "drilldownConfig": [],
+            "freeformTags": {},
+            "id": "ocid1.managementsavedsearch.oc1..aaaaaaaaxexlfzufy5yhp4bwiq6jzixl57babp75ibdiot37peaynqhp5oea",
+            "isOobSavedSearch": false,
+            "metadataVersion": "2.0",
+            "nls": {},
+            "parametersConfig": [
+              {
+                "defaultFilterIds": [
+                  "OOBSS-management-dashboard-filter-4a"
+                ],
+                "displayName": "Log Group Compartment",
+                "editUi": {
+                  "inputType": "none"
+                },
+                "name": "log-analytics-log-group-compartment",
+                "required": true
+              },
+              {
+                "defaultFilterIds": [
+                  "OOBSS-management-dashboard-filter-2a"
+                ],
+                "displayName": "Entity",
+                "editUi": {
+                  "inputType": "none"
+                },
+                "name": "log-analytics-entity",
+                "required": true
+              },
+              {
+                "defaultFilterIds": [
+                  "OOBSS-management-dashboard-filter-3a"
+                ],
+                "displayName": "Log Set",
+                "editUi": {
+                  "inputType": "none"
+                },
+                "hidden": "$(window.logSetNotEnabled)",
+                "name": "log-analytics-log-set",
+                "required": true
+              }
+            ],
+            "providerId": "log-analytics",
+            "providerName": "Logging Analytics",
+            "providerVersion": "3.0.0",
+            "screenImage": " ",
+            "type": "WIDGET_SHOW_IN_DASHBOARD",
+            "uiConfig": {
+              "enableWidgetInApp": true,
+              "internalKey": "ocid1.managementsavedsearch.oc1..aaaaaaaaxexlfzufy5yhp4bwiq6jzixl57babp75ibdiot37peaynqhp5oea",
+              "queryString": "'Log Source' = 'tls-migration-source' and 'tls-version' != TLSv1.3 and 'tls-api-username' != '' and 'tls-api-username' != null | stats count by 'tls-api-username', 'tls-version' | sort -'tls-api-username' | head 10",
+              "scopeFilters": {
+                "Entity": {
+                  "flags": {
+                    "IncludeDependents": true,
+                    "ScopeCompartmentId": "ENTER_COMPARTMENT_ID"
+                  },
+                  "type": "Entity",
+                  "values": []
+                },
+                "LogGroup": {
+                  "flags": {
+                    "IncludeSubCompartments": true
+                  },
+                  "type": "LogGroup",
+                  "values": [
+                    {
+                      "label": "tls-migration-demo",
+                      "value": "ENTER_COMPARTMENT_ID"
+                    }
+                  ]
+                },
+                "filters": [
+                  {
+                    "flags": {
+                      "IncludeSubCompartments": true
+                    },
+                    "type": "LogGroup",
+                    "values": [
+                      {
+                        "label": "tls-migration-demo",
+                        "value": "ENTER_COMPARTMENT_ID"
+                      }
+                    ]
+                  },
+                  {
+                    "flags": {
+                      "IncludeDependents": true,
+                      "ScopeCompartmentId": "ENTER_COMPARTMENT_ID"
+                    },
+                    "type": "Entity",
+                    "values": []
+                  }
+                ],
+                "isGlobal": false
+              },
+              "showTitle": true,
+              "timeSelection": {
+                "timePeriod": "l8hr"
+              },
+              "visualizationOptions": {
+                "customVizOpt": {
+                  "GEOMAP_SETTINGS": {
+                    "basemap": "bi_world_map_light",
+                    "clusterColor": "rgb(192, 192, 192)",
+                    "filterOnZoom": false,
+                    "isShowLegend": true,
+                    "lat": 2273030.9269876885,
+                    "lon": 0,
+                    "mapZoom": 1,
+                    "pointColor": "rgb(0, 0, 255)",
+                    "srid": 3857,
+                    "toggleClusters": false
+                  }
+                }
+              },
+              "visualizationType": "treemap",
+              "vizType": "lxSavedSearchWidgetType"
+            },
+            "widgetTemplate": "visualizations/chartWidgetTemplate.html",
+            "widgetVM": "jet-modules/dashboards/widgets/lxSavedSearchWidget"
+          },
+          {
+            "compartmentId": "ENTER_COMPARTMENT_ID",
+            "dataConfig": [],
+            "definedTags": {},
+            "description": "",
+            "displayName": "TLS-migration-user-agent-percentage",
+            "drilldownConfig": [],
+            "freeformTags": {},
+            "id": "ocid1.managementsavedsearch.oc1..aaaaaaaae6kk4l43czq7zuhffqrb6e36uxz6n2ghvrw4uaahrk63fhkypipa",
+            "isOobSavedSearch": false,
+            "metadataVersion": "2.0",
+            "nls": {},
+            "parametersConfig": [
+              {
+                "defaultFilterIds": [
+                  "OOBSS-management-dashboard-filter-4a"
+                ],
+                "displayName": "Log Group Compartment",
+                "editUi": {
+                  "inputType": "none"
+                },
+                "name": "log-analytics-log-group-compartment",
+                "required": true
+              },
+              {
+                "defaultFilterIds": [
+                  "OOBSS-management-dashboard-filter-2a"
+                ],
+                "displayName": "Entity",
+                "editUi": {
+                  "inputType": "none"
+                },
+                "name": "log-analytics-entity",
+                "required": true
+              },
+              {
+                "defaultFilterIds": [
+                  "OOBSS-management-dashboard-filter-3a"
+                ],
+                "displayName": "Log Set",
+                "editUi": {
+                  "inputType": "none"
+                },
+                "hidden": "$(window.logSetNotEnabled)",
+                "name": "log-analytics-log-set",
+                "required": true
+              }
+            ],
+            "providerId": "log-analytics",
+            "providerName": "Logging Analytics",
+            "providerVersion": "3.0.0",
+            "screenImage": " ",
+            "type": "WIDGET_SHOW_IN_DASHBOARD",
+            "uiConfig": {
+              "enableWidgetInApp": true,
+              "internalKey": "ocid1.managementsavedsearch.oc1..aaaaaaaae6kk4l43czq7zuhffqrb6e36uxz6n2ghvrw4uaahrk63fhkypipa",
+              "queryString": "'Log Source' = 'tls-migration-source' and 'tls-version' != TLSv1.3 and 'tls-request-user-agent' != '' and 'tls-request-user-agent' != null | stats count by 'tls-request-user-agent'",
+              "scopeFilters": {
+                "Entity": {
+                  "flags": {
+                    "IncludeDependents": true,
+                    "ScopeCompartmentId": "ENTER_COMPARTMENT_ID"
+                  },
+                  "type": "Entity",
+                  "values": []
+                },
+                "LogGroup": {
+                  "flags": {
+                    "IncludeSubCompartments": true
+                  },
+                  "type": "LogGroup",
+                  "values": [
+                    {
+                      "label": "tls-migration-demo",
+                      "value": "ENTER_COMPARTMENT_ID"
+                    }
+                  ]
+                },
+                "filters": [
+                  {
+                    "flags": {
+                      "IncludeSubCompartments": true
+                    },
+                    "type": "LogGroup",
+                    "values": [
+                      {
+                        "label": "tls-migration-demo",
+                        "value": "ENTER_COMPARTMENT_ID"
+                      }
+                    ]
+                  },
+                  {
+                    "flags": {
+                      "IncludeDependents": true,
+                      "ScopeCompartmentId": "ENTER_COMPARTMENT_ID"
+                    },
+                    "type": "Entity",
+                    "values": []
+                  }
+                ],
+                "isGlobal": false
+              },
+              "showTitle": true,
+              "timeSelection": {
+                "timePeriod": "l8hr"
+              },
+              "visualizationOptions": {
+                "customVizOpt": {
+                  "GEOMAP_SETTINGS": {
+                    "basemap": "bi_world_map_light",
+                    "clusterColor": "rgb(192, 192, 192)",
+                    "filterOnZoom": false,
+                    "isShowLegend": true,
+                    "lat": 2273030.9269876885,
+                    "lon": 0,
+                    "mapZoom": 1,
+                    "pointColor": "rgb(0, 0, 255)",
+                    "srid": 3857,
+                    "toggleClusters": false
+                  }
+                }
+              },
+              "visualizationType": "pie",
+              "vizType": "lxSavedSearchWidgetType"
+            },
+            "widgetTemplate": "visualizations/chartWidgetTemplate.html",
+            "widgetVM": "jet-modules/dashboards/widgets/lxSavedSearchWidget"
+          },
+          {
+            "compartmentId": "ENTER_COMPARTMENT_ID",
+            "dataConfig": [],
+            "definedTags": {},
+            "description": "",
+            "displayName": "TLS-migration-geostats",
+            "drilldownConfig": [],
+            "freeformTags": {},
+            "id": "ocid1.managementsavedsearch.oc1..aaaaaaaasyidnxjg4ru2ljkdybsdp6qj7nc3lifce5x6qpkl5k4h363zzakq",
+            "isOobSavedSearch": false,
+            "metadataVersion": "2.0",
+            "nls": {},
+            "parametersConfig": [
+              {
+                "defaultFilterIds": [
+                  "OOBSS-management-dashboard-filter-4a"
+                ],
+                "displayName": "Log Group Compartment",
+                "editUi": {
+                  "inputType": "none"
+                },
+                "name": "log-analytics-log-group-compartment",
+                "required": true
+              },
+              {
+                "defaultFilterIds": [
+                  "OOBSS-management-dashboard-filter-2a"
+                ],
+                "displayName": "Entity",
+                "editUi": {
+                  "inputType": "none"
+                },
+                "name": "log-analytics-entity",
+                "required": true
+              },
+              {
+                "defaultFilterIds": [
+                  "OOBSS-management-dashboard-filter-3a"
+                ],
+                "displayName": "Log Set",
+                "editUi": {
+                  "inputType": "none"
+                },
+                "hidden": "$(window.logSetNotEnabled)",
+                "name": "log-analytics-log-set",
+                "required": true
+              }
+            ],
+            "providerId": "log-analytics",
+            "providerName": "Logging Analytics",
+            "providerVersion": "3.0.0",
+            "screenImage": " ",
+            "type": "WIDGET_SHOW_IN_DASHBOARD",
+            "uiConfig": {
+              "enableWidgetInApp": true,
+              "queryString": "'Log Source' = 'tls-migration-source' | fields 'Client Host City', -'Entity Type', -Entity, -'Host Name (Server)', -'Problem Priority', -Label | geostats count as logrecords by 'tls-version' | sort -logrecords",
+              "scopeFilters": {
+                "Entity": {
+                  "flags": {
+                    "IncludeDependents": true,
+                    "ScopeCompartmentId": "ENTER_COMPARTMENT_ID"
+                  },
+                  "type": "Entity",
+                  "values": []
+                },
+                "LogGroup": {
+                  "flags": {
+                    "IncludeSubCompartments": true
+                  },
+                  "type": "LogGroup",
+                  "values": [
+                    {
+                      "label": "tls-migration-demo",
+                      "value": "ENTER_COMPARTMENT_ID"
+                    }
+                  ]
+                },
+                "LogSet": {
+                  "flags": {},
+                  "type": "LogSet",
+                  "values": []
+                },
+                "MetricCompartment": {
+                  "flags": {},
+                  "type": "MetricCompartment",
+                  "values": []
+                },
+                "ResourceCompartment": {
+                  "flags": {
+                    "IncludeSubCompartments": true
+                  },
+                  "type": "ResourceCompartment",
+                  "values": [
+                    {
+                      "label": "",
+                      "value": ""
+                    }
+                  ]
+                },
+                "filters": [
+                  {
+                    "flags": {
+                      "IncludeSubCompartments": true
+                    },
+                    "type": "LogGroup",
+                    "values": [
+                      {
+                        "label": "tls-migration-demo",
+                        "value": "ENTER_COMPARTMENT_ID"
+                      }
+                    ]
+                  },
+                  {
+                    "flags": {},
+                    "type": "MetricCompartment",
+                    "values": []
+                  },
+                  {
+                    "flags": {
+                      "IncludeDependents": true,
+                      "ScopeCompartmentId": "ENTER_COMPARTMENT_ID"
+                    },
+                    "type": "Entity",
+                    "values": []
+                  },
+                  {
+                    "flags": {},
+                    "type": "LogSet",
+                    "values": []
+                  },
+                  {
+                    "flags": {
+                      "IncludeSubCompartments": true
+                    },
+                    "type": "ResourceCompartment",
+                    "values": [
+                      {
+                        "label": "",
+                        "value": ""
+                      }
+                    ]
+                  }
+                ],
+                "isGlobal": false
+              },
+              "showTitle": true,
+              "timeSelection": {
+                "timePeriod": "l60min"
+              },
+              "visualizationOptions": {
+                "customVizOpt": {
+                  "GEOMAP_SETTINGS": {
+                    "basemap": "bi_world_map_light",
+                    "clusterColor": "rgb(192, 192, 192)",
+                    "filterOnZoom": false,
+                    "isShowLegend": true,
+                    "lat": 2273030.9269876885,
+                    "lon": 0,
+                    "mapZoom": 1,
+                    "pointColor": "rgb(0, 0, 255)",
+                    "srid": 3857,
+                    "toggleClusters": false
+                  }
+                }
+              },
+              "visualizationType": "map",
+              "vizType": "lxSavedSearchWidgetType"
+            },
+            "widgetTemplate": "visualizations/chartWidgetTemplate.html",
+            "widgetVM": "jet-modules/dashboards/widgets/lxSavedSearchWidget"
+          },
+          {
+            "compartmentId": "ENTER_COMPARTMENT_ID",
+            "dataConfig": [],
+            "definedTags": {},
+            "description": "",
+            "displayName": "TLS-migration-version-percentage",
+            "drilldownConfig": [],
+            "freeformTags": {},
+            "id": "ocid1.managementsavedsearch.oc1..aaaaaaaa3ylu43x72cq6thldqb6zpz75lelenywratyjxxvx3hzujg5npoiq",
+            "isOobSavedSearch": false,
+            "metadataVersion": "2.0",
+            "nls": {},
+            "parametersConfig": [
+              {
+                "defaultFilterIds": [
+                  "OOBSS-management-dashboard-filter-4a"
+                ],
+                "displayName": "Log Group Compartment",
+                "editUi": {
+                  "inputType": "none"
+                },
+                "name": "log-analytics-log-group-compartment",
+                "required": true
+              },
+              {
+                "defaultFilterIds": [
+                  "OOBSS-management-dashboard-filter-2a"
+                ],
+                "displayName": "Entity",
+                "editUi": {
+                  "inputType": "none"
+                },
+                "name": "log-analytics-entity",
+                "required": true
+              },
+              {
+                "defaultFilterIds": [
+                  "OOBSS-management-dashboard-filter-3a"
+                ],
+                "displayName": "Log Set",
+                "editUi": {
+                  "inputType": "none"
+                },
+                "hidden": "$(window.logSetNotEnabled)",
+                "name": "log-analytics-log-set",
+                "required": true
+              }
+            ],
+            "providerId": "log-analytics",
+            "providerName": "Logging Analytics",
+            "providerVersion": "3.0.0",
+            "screenImage": " ",
+            "type": "WIDGET_SHOW_IN_DASHBOARD",
+            "uiConfig": {
+              "enableWidgetInApp": true,
+              "internalKey": "ocid1.managementsavedsearch.oc1..aaaaaaaa3ylu43x72cq6thldqb6zpz75lelenywratyjxxvx3hzujg5npoiq",
+              "queryString": "'Log Source' = 'tls-migration-source' and 'tls-version' != '' and 'tls-version' != null | timestats count as logrecords by 'tls-version' | sort -logrecords",
+              "scopeFilters": {
+                "Entity": {
+                  "flags": {
+                    "IncludeDependents": true,
+                    "ScopeCompartmentId": "ENTER_COMPARTMENT_ID"
+                  },
+                  "type": "Entity",
+                  "values": []
+                },
+                "LogGroup": {
+                  "flags": {
+                    "IncludeSubCompartments": true
+                  },
+                  "type": "LogGroup",
+                  "values": [
+                    {
+                      "label": "tls-migration-demo",
+                      "value": "ENTER_COMPARTMENT_ID"
+                    }
+                  ]
+                },
+                "LogSet": {
+                  "flags": {},
+                  "type": "LogSet",
+                  "values": []
+                },
+                "MetricCompartment": {
+                  "flags": {},
+                  "type": "MetricCompartment",
+                  "values": []
+                },
+                "ResourceCompartment": {
+                  "flags": {
+                    "IncludeSubCompartments": true
+                  },
+                  "type": "ResourceCompartment",
+                  "values": [
+                    {
+                      "label": "",
+                      "value": ""
+                    }
+                  ]
+                },
+                "filters": [
+                  {
+                    "flags": {
+                      "IncludeSubCompartments": true
+                    },
+                    "type": "LogGroup",
+                    "values": [
+                      {
+                        "label": "tls-migration-demo",
+                        "value": "ENTER_COMPARTMENT_ID"
+                      }
+                    ]
+                  },
+                  {
+                    "flags": {},
+                    "type": "MetricCompartment",
+                    "values": []
+                  },
+                  {
+                    "flags": {
+                      "IncludeDependents": true,
+                      "ScopeCompartmentId": "ENTER_COMPARTMENT_ID"
+                    },
+                    "type": "Entity",
+                    "values": []
+                  },
+                  {
+                    "flags": {},
+                    "type": "LogSet",
+                    "values": []
+                  },
+                  {
+                    "flags": {
+                      "IncludeSubCompartments": true
+                    },
+                    "type": "ResourceCompartment",
+                    "values": [
+                      {
+                        "label": "",
+                        "value": ""
+                      }
+                    ]
+                  }
+                ],
+                "isGlobal": false
+              },
+              "showTitle": true,
+              "timeSelection": {
+                "timePeriod": "l8hr"
+              },
+              "visualizationOptions": {
+                "customVizOpt": {
+                  "GEOMAP_SETTINGS": {
+                    "basemap": "bi_world_map_light",
+                    "clusterColor": "rgb(192, 192, 192)",
+                    "filterOnZoom": false,
+                    "isShowLegend": true,
+                    "lat": 2273030.9269876885,
+                    "lon": 0,
+                    "mapZoom": 1,
+                    "pointColor": "rgb(0, 0, 255)",
+                    "srid": 3857,
+                    "toggleClusters": false
+                  }
+                }
+              },
+              "visualizationType": "line",
+              "vizType": "lxSavedSearchWidgetType"
+            },
+            "widgetTemplate": "visualizations/chartWidgetTemplate.html",
+            "widgetVM": "jet-modules/dashboards/widgets/lxSavedSearchWidget"
+          },
+          {
+            "compartmentId": "ENTER_COMPARTMENT_ID",
+            "dataConfig": [],
+            "definedTags": {},
+            "description": "",
+            "displayName": "Recent Non TLSv1.3 user details",
+            "drilldownConfig": [],
+            "freeformTags": {},
+            "id": "ocid1.managementsavedsearch.oc1..aaaaaaaa2cztoqttu7u67jgalicauzljvsme7vhagpnvvxdevwpv5fp6ut7a",
+            "isOobSavedSearch": false,
+            "metadataVersion": "2.0",
+            "nls": {},
+            "parametersConfig": [
+              {
+                "defaultFilterIds": [
+                  "OOBSS-management-dashboard-filter-4a"
+                ],
+                "displayName": "Log Group Compartment",
+                "editUi": {
+                  "inputType": "none"
+                },
+                "name": "log-analytics-log-group-compartment",
+                "required": true
+              },
+              {
+                "defaultFilterIds": [
+                  "OOBSS-management-dashboard-filter-2a"
+                ],
+                "displayName": "Entity",
+                "editUi": {
+                  "inputType": "none"
+                },
+                "name": "log-analytics-entity",
+                "required": true
+              },
+              {
+                "defaultFilterIds": [
+                  "OOBSS-management-dashboard-filter-3a"
+                ],
+                "displayName": "Log Set",
+                "editUi": {
+                  "inputType": "none"
+                },
+                "hidden": "$(window.logSetNotEnabled)",
+                "name": "log-analytics-log-set",
+                "required": true
+              }
+            ],
+            "providerId": "log-analytics",
+            "providerName": "Logging Analytics",
+            "providerVersion": "3.0.0",
+            "screenImage": " ",
+            "type": "WIDGET_SHOW_IN_DASHBOARD",
+            "uiConfig": {
+              "enableWidgetInApp": true,
+              "internalKey": "ocid1.managementsavedsearch.oc1..aaaaaaaa2cztoqttu7u67jgalicauzljvsme7vhagpnvvxdevwpv5fp6ut7a",
+              "queryString": "'Log Source' = 'tls-migration-source' and 'tls-version' != TLSv1.3 and (('tls-api-username' != '' or 'tls-form-username' != '') and ('tls-api-username' != null or 'tls-form-username' != null)) | fields -Entity, -'Entity Type', -'Host Name (Server)', -'Problem Priority', -Label, -'Log Source' | sort -Time | fields 'tls-form-username' as 'Login Username', 'tls-api-username' as 'API Username', 'tls-client-ip' as 'Client IP Address', 'tls-request-uri' as 'Request URI', 'tls-version' as 'TLS Version', 'Client Host Country'",
+              "scopeFilters": {
+                "Entity": {
+                  "flags": {
+                    "IncludeDependents": true,
+                    "ScopeCompartmentId": "ENTER_COMPARTMENT_ID"
+                  },
+                  "type": "Entity",
+                  "values": []
+                },
+                "LogGroup": {
+                  "flags": {
+                    "IncludeSubCompartments": true
+                  },
+                  "type": "LogGroup",
+                  "values": [
+                    {
+                      "label": "tls-migration-demo",
+                      "value": "ENTER_COMPARTMENT_ID"
+                    }
+                  ]
+                },
+                "LogSet": {
+                  "flags": {},
+                  "type": "LogSet",
+                  "values": []
+                },
+                "MetricCompartment": {
+                  "flags": {},
+                  "type": "MetricCompartment",
+                  "values": []
+                },
+                "ResourceCompartment": {
+                  "flags": {
+                    "IncludeSubCompartments": true
+                  },
+                  "type": "ResourceCompartment",
+                  "values": [
+                    {
+                      "label": "",
+                      "value": ""
+                    }
+                  ]
+                },
+                "filters": [
+                  {
+                    "flags": {
+                      "IncludeSubCompartments": true
+                    },
+                    "type": "LogGroup",
+                    "values": [
+                      {
+                        "label": "tls-migration-demo",
+                        "value": "ENTER_COMPARTMENT_ID"
+                      }
+                    ]
+                  },
+                  {
+                    "flags": {},
+                    "type": "MetricCompartment",
+                    "values": []
+                  },
+                  {
+                    "flags": {
+                      "IncludeDependents": true,
+                      "ScopeCompartmentId": "ENTER_COMPARTMENT_ID"
+                    },
+                    "type": "Entity",
+                    "values": []
+                  },
+                  {
+                    "flags": {},
+                    "type": "LogSet",
+                    "values": []
+                  },
+                  {
+                    "flags": {
+                      "IncludeSubCompartments": true
+                    },
+                    "type": "ResourceCompartment",
+                    "values": [
+                      {
+                        "label": "",
+                        "value": ""
+                      }
+                    ]
+                  }
+                ],
+                "isGlobal": false
+              },
+              "showTitle": true,
+              "timeSelection": {
+                "numUnits": 8,
+                "timePeriod": "relative",
+                "units": "HOURS"
+              },
+              "visualizationOptions": {
+                "customVizOpt": {
+                  "GEOMAP_SETTINGS": {
+                    "basemap": "bi_world_map_light",
+                    "clusterColor": "rgb(192, 192, 192)",
+                    "filterOnZoom": false,
+                    "isShowLegend": true,
+                    "lat": 2273030.9269876885,
+                    "lon": 0,
+                    "mapZoom": 1,
+                    "pointColor": "rgb(0, 0, 255)",
+                    "srid": 3857,
+                    "toggleClusters": false
+                  }
+                }
+              },
+              "visualizationType": "table",
+              "vizType": "lxSavedSearchWidgetType"
+            },
+            "widgetTemplate": "visualizations/chartWidgetTemplate.html",
+            "widgetVM": "jet-modules/dashboards/widgets/lxSavedSearchWidget"
+          }
+        ],
+        "screenImage": "todo: provide value[mandatory]",
+        "tiles": [
+          {
+            "column": 0,
+            "dataConfig": [],
+            "displayName": "TLS Version Distribution",
+            "drilldownConfig": [],
+            "height": 4,
+            "nls": {},
+            "parametersMap": {
+              "log-analytics-entity": "$(dashboard.params.log-analytics-entity-filter)",
+              "log-analytics-log-group-compartment": "$(dashboard.params.log-analytics-loggroup-filter)"
+            },
+            "row": 0,
+            "savedSearchId": "ocid1.managementsavedsearch.oc1..aaaaaaaa3ylu43x72cq6thldqb6zpz75lelenywratyjxxvx3hzujg5npoiq",
+            "state": "DEFAULT",
+            "uiConfig": {},
+            "width": 4
+          },
+          {
+            "column": 0,
+            "dataConfig": [],
+            "displayName": "Non TLSv1.3 User Agents",
+            "drilldownConfig": [],
+            "height": 4,
+            "nls": {},
+            "parametersMap": {
+              "log-analytics-entity": "$(dashboard.params.log-analytics-entity-filter)",
+              "log-analytics-log-group-compartment": "$(dashboard.params.log-analytics-loggroup-filter)"
+            },
+            "row": 4,
+            "savedSearchId": "ocid1.managementsavedsearch.oc1..aaaaaaaae6kk4l43czq7zuhffqrb6e36uxz6n2ghvrw4uaahrk63fhkypipa",
+            "state": "DEFAULT",
+            "uiConfig": {},
+            "width": 4
+          },
+          {
+            "column": 4,
+            "dataConfig": [],
+            "displayName": "Client Origin Locations",
+            "drilldownConfig": [],
+            "height": 6,
+            "nls": {},
+            "parametersMap": {
+              "log-analytics-entity": "$(dashboard.params.log-analytics-entity-filter)",
+              "log-analytics-log-group-compartment": "$(dashboard.params.log-analytics-loggroup-filter)"
+            },
+            "row": 0,
+            "savedSearchId": "ocid1.managementsavedsearch.oc1..aaaaaaaasyidnxjg4ru2ljkdybsdp6qj7nc3lifce5x6qpkl5k4h363zzakq",
+            "state": "DEFAULT",
+            "uiConfig": {},
+            "width": 8
+          },
+          {
+            "column": 0,
+            "dataConfig": [],
+            "displayName": "Top 10 Non TLSv1.3 Users",
+            "drilldownConfig": [],
+            "height": 3,
+            "nls": {},
+            "parametersMap": {
+              "log-analytics-entity": "$(dashboard.params.log-analytics-entity-filter)",
+              "log-analytics-log-group-compartment": "$(dashboard.params.log-analytics-loggroup-filter)"
+            },
+            "row": 8,
+            "savedSearchId": "ocid1.managementsavedsearch.oc1..aaaaaaaaxexlfzufy5yhp4bwiq6jzixl57babp75ibdiot37peaynqhp5oea",
+            "state": "DEFAULT",
+            "uiConfig": {},
+            "width": 4
+          },
+          {
+            "column": 4,
+            "dataConfig": [],
+            "displayName": "Recent non TLSv1.3 user details",
+            "drilldownConfig": [],
+            "height": 5,
+            "nls": {},
+            "parametersMap": {
+              "log-analytics-entity": "$(dashboard.params.log-analytics-entity-filter)",
+              "log-analytics-log-group-compartment": "$(dashboard.params.log-analytics-loggroup-filter)"
+            },
+            "row": 6,
+            "savedSearchId": "ocid1.managementsavedsearch.oc1..aaaaaaaa2cztoqttu7u67jgalicauzljvsme7vhagpnvvxdevwpv5fp6ut7a",
+            "state": "DEFAULT",
+            "uiConfig": {},
+            "width": 8
+          }
+        ],
+        "type": "normal",
+        "uiConfig": {
+          "isFilteringEnabled": false,
+          "isRefreshEnabled": true,
+          "isTimeRangeEnabled": true
+        }
+      }
+    ]
+  }
