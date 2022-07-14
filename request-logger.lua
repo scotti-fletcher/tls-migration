@@ -30,7 +30,6 @@ if ngx.req.get_post_args()['username'] then
     req['username'] = ngx.req.get_post_args()['username']
 end
 
-local f = assert(io.open('/usr/local/openresty/nginx/logs/tls.log', "a"))
 local file = io.open("/usr/local/openresty/nginx/logs/tls.log", "a")
 file:write(json.encode(data) .. "\n")
 file:close()
